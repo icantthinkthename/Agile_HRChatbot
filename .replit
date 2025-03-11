@@ -16,4 +16,4 @@ author = 39658473
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "npm run dev"
+args = "node hr-employee-backend/server.js"
