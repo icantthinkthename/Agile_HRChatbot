@@ -14,15 +14,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Serve static files from root directory
-app.use(express.static('../'));
-
 const db = admin.firestore();
-
-// API endpoint เพื่อตรวจสอบสถานะของเซิร์ฟเวอร์
-app.get('/api/status', (req, res) => {
-  res.json({ status: 'ok', message: 'API server is running' });
-});
 
 const PORT = 3000; // Changed port to 3000
 app.listen(PORT, '0.0.0.0', () => {
