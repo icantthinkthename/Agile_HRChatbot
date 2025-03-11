@@ -1,0 +1,511 @@
+* {
+    font-family: 'Sen', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* ป้องกันการเลื่อนออกจากหน้าจอ */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh; /* ให้ body เต็มจอ */
+    background: #F6FDFF;
+}
+
+.sidebar {
+    width: 220px;
+    background: #112D4E;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+/* Logo Section */
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 120px; 
+    display: centered;
+}
+
+/* Navigation Menu */
+.menu {
+    flex-grow: 1;
+}
+
+.menu-item {
+    font-weight: 700;
+    display: flex; /* Align icon and text horizontally */
+    align-items: center; /* Center vertically */
+    gap: 10px; /* Space between icon and text */
+    padding: 15px;
+    color: #F5EFE7;
+    cursor: pointer;
+    text-decoration: none; /* Ensure it behaves like a button */
+}
+
+.menu-item img {
+    width: 24px;
+    margin-right: 10px;
+}
+
+.menu-item.active{
+    background: #3F72AF;
+    border-radius: 16px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+.menu-item:hover{
+    background: #DBE2EF;
+    border-radius: 16px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+/* Logout Button */
+.logout {
+    font-weight: 700;
+    display: flex; /* Align icon and text horizontally */
+    align-items: center; /* Center vertically */
+    gap: 10px; /* Space between icon and text */
+    padding: 15px;
+    color: #F5EFE7;
+    cursor: pointer;
+    text-decoration: none; /* Ensure it behaves like a button */
+}
+
+/* Hover Effect */
+.logout:hover {
+    border-radius: 1000px;
+    background: #DBE2EF;
+    transition: 0.2s;
+}
+
+/* Ensure Icon is Properly Styled */
+.logout img {
+    width: 35px; /* Adjust icon size */
+    height: auto;
+    margin-top: 7px;
+    margin-left: -17px;
+}
+
+/* ===== Main Content ===== */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    max-width: calc(100vw - 240px); /* ลดขนาดให้พอดี */
+    overflow: auto;
+}
+
+header {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align items to the left */
+    margin-bottom: 40px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.overview-title {
+    font-family: Arial, sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    color: #112D4E;
+    margin-bottom: -20px;
+    margin-top: 60px; /* Moves the title a little bit down */
+}
+
+.search-bar {
+    width: 400px; /* Keep width the same */
+    font-family: Arial, sans-serif;
+    display: flex;
+    margin-top: 50px;
+    background: #003366; /* Dark blue background */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Ensure a clean look */
+    height: 30px; /* Reduce height */
+
+}
+
+.search-bar input {
+    font-family: Arial, sans-serif;
+    color: white; /* Text color */
+    border: none;
+    outline: none;
+    flex: 4.5; /* Keep it flexible */
+    padding: 5px 10px; /* Adjust padding to fit smaller height */
+    background: #003366; /* Match background */
+    font-size: 10px; /* Reduce font size slightly */
+}
+
+.search-bar input::placeholder {
+    color: #d0d0d0; /* Light gray placeholder */
+    font-size: 10px; /* Match input text size */
+}
+
+.search-bar button {
+    background: #003366; /* Match input */
+    border: none;
+    outline: none;
+    padding: 5px 10px; /* Adjust padding */
+    cursor: pointer;
+    transition: 0.3s;
+    height: 80%; /* Ensure button matches input height */
+}
+
+.search-bar button:hover {
+    background: #002855; /* Slightly darker on hover */
+}
+
+.profile-dropdown {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 70px; /* Adjust positioning */
+    right: 20px;
+    width: 323px;
+    height: 200px;
+    flex-shrink: 0;
+    background: #F0F5FF;
+    border: 3px solid #112D4E;
+    border-radius: 10px 0px 10px 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    z-index: 1000;
+    transition: right 0.5s ease-in-out;
+}
+
+
+/* Profile Dropdown Content */
+.profile-dropdown .dropdown-content {
+    text-align: center;
+}
+
+/* Profile Image */
+.profile-dropdown img.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* Profile Name */
+.profile-dropdown h3 {
+    color: #112D4E;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Profile Role */
+.profile-dropdown p {
+    font-size: 14px;
+    color: #3F72AF;
+    margin-bottom: 5px;
+}
+
+/* Close Button */
+.profile-dropdown .close {
+    position: absolute;
+    bottom: 165px;
+    right: 5px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #112D4E;
+    transition: right 0.3s ease-in-out;
+}
+
+/* Cursor Pointer for HR Section */
+.hr-section {
+    cursor: pointer; /* Changes cursor to pointer on hover */
+}
+
+
+/* HR Section */
+.hr-section {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    background: #F6FDFF;
+    padding: 5px;
+}
+
+.hr-section img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    box-shadow: #5F6368 inset;
+}
+
+.hr-info h3 {
+    font-size: 16px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #112D4E;
+}
+
+.hr-info p {
+    margin-right: 20px;
+    font-size: 12px;
+    color: #3F72AF;
+    font-weight: 549;
+    line-height: normal;
+    letter-spacing: 0.36px;
+}
+
+/* Chat Header */
+.chat-header {
+     
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: #DBE2EF;
+    margin-top: 80px;
+}
+
+/* ===== Dashboard Content ===== */
+.dashboard-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: -20px; /* Moves content up slightly */
+    
+}
+.see-all {
+    background: #003366; /* Match search bar button */
+    color: #DBE2EF; /* Text color */
+    border: none;
+    outline: none;
+    padding: 5px 18px;
+    font-size: 10px;
+    border-radius: 15px; /* Rounded corners */
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Style the anchor tag inside the button */
+.see-all a {
+    color: #DBE2EF; /* Set text color */
+    text-decoration: none; /* Remove underline */
+    display: block; /* Ensure full clickable area */
+}
+
+/* Optional: Style the span inside the anchor */
+.see-all a span {
+    color: inherit; /* Inherit color from parent */
+}
+
+
+.see-all:hover {
+    background: #002855; /* Darker blue on hover */
+}
+
+/* ===== Documents Section ===== */
+.documents {
+    border-radius: 10px;
+    background: #DBE2EF;    
+    width: 300px;
+    height: 245px;   
+    padding: 25px 10px;
+    overflow: auto; 
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    margin-top: 10px; /* Moves documents up */
+
+    /* Hide scrollbar */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.documents::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, Edge */
+}
+
+.doc-item {
+    background: #003366;
+    color: #DBE2EF;
+    height: 45px; /* Increased height for job description */
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between; /* Push doc-type to the right */
+    align-items: center;
+    position: relative;
+}
+
+.doc-title {
+    font-weight: bold;
+    display: block;
+}
+
+.job-description {
+    font-size: 12px;
+    color: #C1D3FE; /* Lighter blue for contrast */
+    display: block;
+}
+
+.doc-type {
+    font-size: 14px;
+    color: #FFFFFF;
+    position: absolute;
+    right: 10px; /* Align to the right */
+}
+
+
+/* ===== Calendar Section ===== */
+.calendar {
+    background: #F9F9E0;
+    width: 300px;
+    height: 235px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    text-align: center;
+    margin-top: -235px; /* Moves calendar up */
+}
+.today {
+    background: red !important;
+    color: white !important;
+    border: 3px solid black !important;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar-header button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #3F72AF;
+    padding: 0 10px;
+}
+
+#current-month {
+    font-size: 20px;
+    font-weight: bold;
+    color: #3F72AF;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.calendar-grid span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 34.848px;
+    height: 39.786px;
+    background: #3F72AF;
+    color: #F9F7F7;
+    border-radius: 100px;
+    font-size: 10px;
+}
+
+.calendar-grid .current-day {
+    background: #112D4E;
+    border-radius: 100px;
+    color: white !important;
+    border: 3px solid black !important;
+}
+
+.date-number {
+    border-radius: 100px;
+    background: var(--, #3F72AF);
+}
+
+.current-date {
+    border-radius: 100px;
+    background: var(--, #112D4E);
+}
+
+/* ===== Messages Section ===== */
+.messages {
+    border-radius: 10px;
+    overflow: auto; 
+    flex-shrink: 0;
+    border: 1px solid #3D4548;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    width: 650px;
+    height: 520px;
+    padding: 25px 10px;
+    margin-top: 10px; /* Moves messages up */
+
+    /* Hide scrollbar */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.messages::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, Edge */
+}
+
+.message-content {
+    display: flex;
+    font-size: 14px;
+    flex-direction: column; /* Stack name and text vertically */
+}
+
+.message-item {
+    display: flex;
+    justify-content: space-between; /* Align timestamp to the right */
+    align-items: center;
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    transition: 0.3s;
+    width: 98%;
+}
+
+.message-item .time {
+    margin-left: auto; /* Push time to the right */
+    font-size: 12px;
+    color: #666;
+}
+
+
+.message-item img {
+    border-radius: 25px;
+    background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+@media (max-width: 768px) {
+    .sidebar {
+        width: 150px;
+    }
+    
+    .search-bar {
+        width: 100%;
+    }
+
+    .messages {
+        height: auto;
+    }
+}

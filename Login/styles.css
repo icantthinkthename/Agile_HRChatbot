@@ -1,0 +1,262 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #DBE2EF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    width: 800px;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    margin: 0 auto; /* Center the container */
+}
+
+/* Left Side (Blue Section) */
+.left-container {
+    background: #3F72AF;
+    width: 50%;  /* Ensure it's exactly 50% */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    position: relative;
+}
+
+.logo-image {
+    width: 200px;
+    height: auto;
+    position: absolute;
+    bottom: 20px;
+    left: 30%;
+    transform: translateX(-50%);
+}
+
+/* Right Side (Login Form) */
+.right-container {
+    width: 50%;  
+    padding: 50px 50px 50px 50px; /* Balanced padding on all sides */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Align form content to the left */
+    text-align: left; /* Make sure all text is aligned left */
+    margin-top: -20px;
+    margin-right: 20px;
+}
+
+
+/* Title */
+.login-title {
+    color: #112D4E;
+    font-size: 38px;
+    margin-bottom: 20px;
+    text-align: left; /* Ensure title aligns to the left */
+}
+
+.id-note { /*Please use company’s ID*/
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    color: #112D4E; /* Soft gray for readability */
+    margin-top: 4px;
+}
+
+/* Floating Label for ID */
+.id-input {
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.id-input input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #112D4E;
+    border-radius: 8px;
+    font-size: 18px;
+    background: transparent;
+    outline: none;
+    transition: 0.3s;
+}
+
+.id-input .id-label {
+    font-family: 'Open Sans', sans-serif;
+    position: absolute;
+    left: 15px;
+    top: 38%;
+    transform: translateY(-50%);
+    font-size: 17px;
+    color: #aaa;
+    transition: 0.3s ease-in-out;
+    pointer-events: none;
+    text-align: left;
+}
+
+.id-input input:focus + .id-label,
+.id-input input:valid + .id-label {
+    top: 10px;
+    font-size: 12px;
+    color: #112D4E;
+}
+
+/* Floating Label for Password */
+.password-input {
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.password-input input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #112D4E;
+    border-radius: 8px;
+    font-size: 18px;
+    background: transparent;
+    outline: none;
+    transition: 0.3s;
+}
+
+.password-input .password-label {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 17px;
+    color: #aaa;
+    transition: 0.3s ease-in-out;
+    pointer-events: none;
+    text-align: left;
+}
+
+.password-input input:focus + .password-label,
+.password-input input:valid + .password-label {
+    top: 10px;
+    font-size: 12px;
+    color: #112D4E;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between; /* Space between checkbox & link */
+    align-items: center; /* Align vertically */
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #112D4E; /* Match your theme */
+}
+
+/*Remember me text*/
+.options label {
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Space between checkbox and text */
+}
+
+/*Checkbox*/
+.options input[type="checkbox"] {
+    appearance: none; /* Remove default styling */
+    width: 16px;
+    height: 16px;
+    border: 1px solid #112D4E; /* Match the dark blue color */
+    border-radius: 3px; /* Slightly rounded corners */
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+.options input[type="checkbox"]:checked {
+    border: 1px solid #112D4E;
+}
+
+.options input[type="checkbox"]::before {
+    content: "✔"; /* Checkmark */
+    font-size: 14px;
+    color: #112D4E;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.options input[type="checkbox"]:checked::before {
+    display: block;
+}
+
+/*Reset Password*/
+.reset-password {
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+    color: #112D4E; /* Match theme */
+    font-weight: none;
+    transition: 0.3s;
+    margin-right: -32px;
+}
+
+.reset-password:hover {
+    text-decoration: underline;
+    color: #3F72AF; /* Slight color change on hover */
+}
+
+/*Login Button*/
+.login-btn {
+    font-family: 'Open Sans', sans-serif;
+    width: 100%; 
+    display: block;
+    background: #112D4E;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 50px; 
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.login-btn:hover {
+    background: #0b1d3a;
+}
+
+.profile-section {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.profile-popup {
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.messages-link {
+    display: block;
+    margin-top: 10px;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}

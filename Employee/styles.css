@@ -1,0 +1,340 @@
+/* Global Styles */
+* {
+    font-family: 'Sen', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    background: #F6FDFF;
+}
+/* ========================
+   SIDEBAR STYLES
+======================== */
+.sidebar {
+    width: 220px;
+    background: #112D4E;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.profile-dropdown {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 70px; /* Adjust positioning */
+    right: 20px;
+    width: 323px;
+    height: 200px;
+    flex-shrink: 0;
+    background: #F0F5FF;
+    border: 3px solid #112D4E;
+    border-radius: 10px 0px 10px 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    z-index: 1000;
+    transition: right 0.5s ease-in-out;
+}
+
+
+/* Profile Dropdown Content */
+.profile-dropdown .dropdown-content {
+    text-align: center;
+}
+
+/* Profile Image */
+.profile-dropdown img.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* Profile Name */
+.profile-dropdown h3 {
+    color: #112D4E;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Profile Role */
+.profile-dropdown p {
+    font-size: 14px;
+    color: #3F72AF;
+    margin-bottom: 5px;
+}
+
+/* Close Button */
+.profile-dropdown .close {
+    position: absolute;
+    bottom: 165px;
+    right: 5px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #112D4E;
+    transition: right 0.3s ease-in-out;
+}
+
+/* Profile Section (No Change) */
+.hr-section {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    background: #F6FDFF;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.hr-section img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.hr-info h3 {
+    font-size: 16px;
+    color: #112D4E;
+}
+
+.hr-info p {
+    font-size: 12px;
+    color: #3F72AF;
+    font-weight: 549;
+}
+/* Logo Section */
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 120px; 
+    display: centered;
+}
+
+/* Navigation Menu */
+.menu {
+    flex-grow: 1;
+}
+
+.menu-item {
+    font-weight: 700;
+    display: flex; /* Align icon and text horizontally */
+    align-items: center; /* Center vertically */
+    gap: 10px; /* Space between icon and text */
+    padding: 15px;
+    color: #F5EFE7;
+    cursor: pointer;
+    text-decoration: none; /* Ensure it behaves like a button */
+}
+
+.menu-item img {
+    width: 24px;
+    margin-right: 10px;
+}
+
+.menu-item.active{
+    background: #3F72AF;
+    border-radius: 16px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+.menu-item:hover{
+    background: #DBE2EF;
+    border-radius: 16px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+/* Logout Button */
+.logout {
+    font-weight: 700;
+    display: flex; /* Align icon and text horizontally */
+    align-items: center; /* Center vertically */
+    gap: 10px; /* Space between icon and text */
+    padding: 15px;
+    color: #F5EFE7;
+    cursor: pointer;
+    text-decoration: none; /* Ensure it behaves like a button */
+}
+
+/* Hover Effect */
+.logout:hover {
+    border-radius: 1000px;
+    background: #DBE2EF;
+    transition: 0.2s;
+}
+
+/* Ensure Icon is Properly Styled */
+.logout img {
+    width: 35px; /* Adjust icon size */
+    height: auto;
+    margin-top: 7px;
+    margin-left: -17px;
+}
+
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    margin-top: 80px;
+    padding: 10px 60px;
+    overflow-y: auto;
+    
+}
+
+/* Header */
+.header {
+    position: sticky;
+    z-index: 1000;
+    display: flex;
+    padding: 15px 0;
+    z-index: 1000;
+    top: 0;
+    align-items: flex-start; /* Aligns items to the top */
+    gap: 10px; /* Keeps spacing between elements */
+    margin-bottom: -170px; /* Adjust spacing below the header */
+    width: 100%; /* ให้ยาวเต็ม */
+    background: #F6FDFF; /* ใช้สีพื้นหลังเดียวกับโปรไฟล์ */
+    padding: 15px 20px;
+    border-radius: 10px; /* ทำให้โค้งมนเหมือนโปรไฟล์ */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #F6FDFF; /* ให้เหมือนโปรไฟล์ */
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+.header h2 {
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    color: #112D4E;
+    font-weight: 800;
+    margin-bottom: 200px;
+}
+.header-container {
+    width: 100vw; /* ทำให้กว้างเต็มจอ */
+    background: #F6FDFF; /* สีเดียวกับโปรไฟล์ */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้นุ่มขึ้น */
+}
+
+.header-content {
+    max-width: 1200px; /* จำกัดความกว้าง */
+    margin: 0 auto; /* จัดให้อยู่กึ่งกลาง */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.add-employee {
+    background: #3F72AF;
+    color: #fff;
+    border: none;
+    padding: 8px 16px; /* Adjust padding for better alignment */
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-top: 3px; /* Slight downward adjustment */
+}
+
+.add-employee:hover {
+    background: #2C5C97;
+}
+
+.search-box {
+    margin-left: auto; 
+    width: 400px; /* Keep width the same */
+    font-family: Arial, sans-serif;
+    display: flex;
+    margin-top: 5px;
+    background: #003366; /* Dark blue background */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Ensure a clean look */
+    height: 35px; /* Reduce height */
+
+}
+
+.search-box input {
+    font-family: Arial, sans-serif;
+    color: white; /* Text color */
+    border: none;
+    outline: none;
+    flex: 4.5; /* Keep it flexible */
+    padding: 5px 10px; /* Adjust padding to fit smaller height */
+    background: #003366; /* Match background */
+    font-size: 10px; /* Reduce font size slightly */
+}
+
+.search-box input::placeholder {
+    color: #d0d0d0; /* Light gray placeholder */
+    font-size: 10px; /* Match input text size */
+}
+
+.search-box button {
+    background: #003366; /* Match input */
+    border: none;
+    outline: none;
+    padding: 5px 10px; /* Adjust padding */
+    cursor: pointer;
+    transition: 0.3s;
+    height: 80%; /* Ensure button matches input height */
+}
+
+.search-box button:hover {
+    background: #002855; /* Slightly darker on hover */
+}
+
+
+
+/* Employee Grid */
+.employee-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* Employee Card */
+.employee-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.employee-card img {
+    width: 250px; 
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+.employee-card h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #112D4E;
+}
+
+.employee-card p {
+    font-size: 14px;
+    color: #3F72AF;
+}
+

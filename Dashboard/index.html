@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BitChat Employee Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700&display=swap" rel="stylesheet">
+    <script src="scripts.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+</head>
+<body>
+<!-- Sidebar -->
+<div class="sidebar">
+    <div class="logo">
+        <img src="images/logo.png" alt="ChatBit Logo">
+    </div>
+    <nav class="menu">
+        <a href="../Dashboard/index.html" class="menu-item active">
+            <img src="images/Dashboard.png" alt="Dashboard">
+            <span>Dashboard</span>
+        </a>
+
+        <a href="../Messages/index.html" class="menu-item">
+            <img src="images/Messages.png" alt="Messages">
+            <span>Messages</span>
+        </a>
+
+        <a href="../Document/index.html" class="menu-item">
+            <img src="images/Documents.png" alt="Documents">
+            <span>Documents</span>
+        </a>
+
+        <a href="../Employee/index.html" class="menu-item">
+            <img src="images/Employees.png" alt="Employee">
+            <span>Employee</span>
+        </a>
+    </nav>
+
+    <div class="logout" onclick="logout()">
+        <img src="images/LogOut.png" alt="Log Out">
+        <span>Log Out</span>
+    </div>
+</div>
+    
+<script>
+function logout() {
+    window.location.href = "../Login/index.html"; // go to Login
+}
+</script>
+
+<!-- Main Content -->
+<div class="main-content">
+    <header>
+        <div class="overview-title">Overview</div>
+        <div class="search-bar">
+            <input type="text" id="search-input"  placeholder="Search">
+            <button><img src="images/search.png" ></button>                
+        </div>
+
+        <div class="chat-box">
+            <div class="chat-box">
+                <!-- HR Section (Clickable) -->
+                <div class="hr-section" id="profile-button">
+                    <div class="hr-info">
+                        <h3 id="employee-name">Employee Name</h3>
+                        <p id="employee-role">Employee Role</p>
+                    </div>
+                    <img id="employee-photo" src="images/default-profile.png" alt="Employee Photo">
+                </div>
+    
+                <!-- Profile Dropdown (Initially Hidden) -->
+                <div id="profileDropdown" class="profile-dropdown">
+                    <div class="dropdown-content">
+                        <img id="dropdown-photo" src="images/default-profile.png" alt="Profile" class="profile-pic">
+                        <h3 id="dropdown-name">Employee Name</h3>
+                        <p id="dropdown-role">Employee Role</p>
+                        <p><strong>Employee ID:</strong> <span id="employee-id">123456789</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-content">
+        <!-- Documents Section -->
+        <section class="documents">
+            <div class="section-header">
+                <h2>Documents</h2>
+                <button class="see-all"><a href="../Document/index.html"> <span>see all</span></a></button>
+            </div>
+            
+            <div class="doc-list">
+                <!-- Documents will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <!-- Messages Section -->
+        <section class="messages">
+            <div class="section-header">
+                <h2>Messages</h2>
+                <button class="see-all"><a href="../Messages/index.html"> <span>see all</span></a></button>
+            </div>
+            <div class="message-list">
+                <!-- Messages will be dynamically inserted here -->
+            </div>
+            <form id="message-form">
+                <input type="text" id="receiver" placeholder="Receiver" required>
+                <input type="text" id="message" placeholder="Message" required>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+
+        <!-- Calendar Section -->
+        <section class="calendar">
+            <div class="calendar-header">
+                <button id="prev-month">&lt;</button>
+                <h2 id="current-month">Loading...</h2>
+                <button id="next-month">&gt;</button>
+            </div>
+            <div class="calendar-grid" id="calendar-grid">
+                <!-- Days will be generated dynamically -->
+            </div>
+        </section>
+    </div>
+</div>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_STORAGE_BUCKET",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  var db = firebase.firestore();
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const calendarGrid = document.getElementById('calendar-grid');
+    const currentMonth = document.getElementById('current-month');
+    const prevMonthButton = document.getElementById('prev-month');
+    const nextMonthButton = document.getElementById('next-month');
+
+    let date = new Date();
+    let currentYear = date.getFullYear();
+    let currentMonthIndex = date.getMonth();
+
+    function renderCalendar(year, month) {
+        calendarGrid.innerHTML = '';
+        const firstDayOfMonth = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const today = new Date();
+
+        currentMonth.textContent = date.toLocaleString('default', { month: 'long' }) + ' ' + year;
+
+        for (let i = 0; i < firstDayOfMonth; i++) {
+            const emptyCell = document.createElement('div');
+            emptyCell.classList.add('empty-cell');
+            calendarGrid.appendChild(emptyCell);
+        }
+
+        for (let day = 1; day <= daysInMonth; day++) {
+            const dayCell = document.createElement('div');
+            dayCell.classList.add('day-cell');
+            dayCell.textContent = day;
+
+            if (year === today.getFullYear() && month === today.getMonth() && day === today.getDate()) {
+                dayCell.classList.add('current-day');
+            }
+
+            calendarGrid.appendChild(dayCell);
+        }
+    }
+
+    prevMonthButton.addEventListener('click', function() {
+        currentMonthIndex--;
+        if (currentMonthIndex < 0) {
+            currentMonthIndex = 11;
+            currentYear--;
+        }
+        renderCalendar(currentYear, currentMonthIndex);
+    });
+
+    nextMonthButton.addEventListener('click', function() {
+        currentMonthIndex++;
+        if (currentMonthIndex > 11) {
+            currentMonthIndex = 0;
+            currentYear++;
+        }
+        renderCalendar(currentYear, currentMonthIndex);
+    });
+
+    renderCalendar(currentYear, currentMonthIndex);
+
+    // Fetch employee data from Firebase
+    db.collection("employees").doc("employeeId").get().then((doc) => {
+      if (doc.exists) {
+        const employeeData = doc.data();
+        const defaultPhoto = "images/default-profile.png";
+
+        // Update profile section with employee data
+        document.getElementById('employee-name').textContent = employeeData.name;
+        document.getElementById('employee-role').textContent = employeeData.role;
+        document.getElementById('employee-photo').src = employeeData.photo || defaultPhoto;
+        document.getElementById('dropdown-name').textContent = employeeData.name;
+        document.getElementById('dropdown-role').textContent = employeeData.role;
+        document.getElementById('dropdown-photo').src = employeeData.photo || defaultPhoto;
+        document.getElementById('employee-id').textContent = employeeData.id;
+      } else {
+        console.log("No such document!");
+      }
+    }).catch((error) => {
+      console.log("Error getting document:", error);
+    });
+
+  });
+</script>
+</body>
+</html>

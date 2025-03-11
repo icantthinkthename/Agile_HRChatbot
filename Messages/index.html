@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BitChat Employee Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700&display=swap" rel="stylesheet">
+    <script src="scripts.js"></script>
+    <script>
+        function logout() {
+            window.location.href = "../Login/index.html"; // Redirect to Login
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <img src="images/logo.png" alt="ChatBit Logo">
+        </div>
+        <nav class="menu">
+            <a href="../Dashboard/index.html" class="menu-item">
+                <img src="images/Dashboard.png" alt="Dashboard">
+                <span>Dashboard</span>
+            </a>
+
+            <a href="../Messages/index.html" class="menu-item active">
+                <img src="images/Messages.png" alt="Messages">
+                <span>Messages</span>
+            </a>
+
+            <a href="../Document/index.html" class="menu-item">
+                <img src="images/Documents.png" alt="Documents">
+                <span>Documents</span>
+            </a>
+
+            <a href="../Employee/index.html" class="menu-item">
+                <img src="images/Employees.png" alt="Employee">
+                <span>Employee</span>
+            </a>
+        </nav>
+
+        <div class="logout" onclick="logout()">
+            <img src="images/LogOut.png" alt="Log Out">
+            <span>Log Out</span>
+        </div>
+    </div> <!-- End of Sidebar -->
+
+    <!-- Chat Section -->
+    <div class="chat-container">
+        <div class="chat-list">
+            <input type="text" placeholder="Search..." class="search-bar">
+            <div class="chat-item active">
+                <img src="images/Charlotte.png" alt="User">
+                <div class="chat-info">
+                    <h4>Charlotte Harrison</h4>
+                    <p>Dear Charles Whitaker, I hope you’re</p>
+                </div>
+                <p class="timestamp">6:43 PM</p>
+
+                <!-- Notification Dot -->
+                <div class="notification-dot">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none">
+                        <circle cx="8" cy="8" r="8" fill="#F5EFE7"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-box">
+            <!-- HR Section (Clickable) -->
+            <div class="hr-section" id="profile-button">
+                <div class="hr-info">
+                    <h3>Charles Whitaker</h3>
+                    <p>Human Resources Manager</p>
+                </div>
+                <img src="images/HR.jpg" alt="HR Manager">
+            </div>
+
+            <!-- Profile Dropdown (Initially Hidden) -->
+            <div id="profileDropdown" class="profile-dropdown">
+                <div class="dropdown-content">
+                    <img src="images/HR.jpg" alt="Profile" class="profile-pic">
+                    <h3>Charles Whitaker</h3>
+                    <p>Human Resources Manager</p>
+                    <p><strong>Employee ID:</strong> 256789120155</p>
+                </div>
+            </div>
+
+            <div class="chat-header">
+                <img src="images/Charlotte.png" alt="User">
+                <div>
+                    <h3>Charlotte Harrison</h3>
+                    <p class="user-role">Accountant</p>
+                </div>
+            </div>
+
+            <div class="messages">
+                <div class="message received">
+                    <p>Dear Charles Whitaker, I hope you’re doing well. I have attached the expense request form for the Digital Finance Transformation project as requested. Could you please confirm if everything looks good and if the reimbursement process can be initiated?</p>
+                </div>
+                
+                <div class="message received">
+                    <p>Thank you in advance.</p>
+                </div>
+                <div class="message sent">
+                    <p>Hello Charlotte Harrison, Thank you for sending the document. I’ll review it and let you know if anything else is needed for the reimbursement process.</p>
+                </div>
+                <div class="message received">
+                    <p>Thank you! Please let me know if you need any additional information or documents.</p>
+                </div>
+            </div>
+
+            <div class="chat-input">
+                <input type="text" placeholder="Send your message...">
+                <button>
+                    <img src="images/Send.png" alt="Send">
+                </button>
+            </div>
+        </div>
+    </div> <!-- End of Chat Container -->
+
+</div> <!-- End of Container -->
+
+<script src="script.js"></script>
+</body>
+</html>

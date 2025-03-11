@@ -1,0 +1,14 @@
+{
+    "type": "service_account",
+    "project_id": "agilehrchatbot",
+    "private_key_id": "6528052709d3d984e05682be1ef3f8fbcfb8ba4f",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCcIuqM6E3FNH2M\nAlmJGQS9M7abc/yowIeB589zR4l6PQMETtRMikq2LYeuH/wV6i49pz0ptAHVhcMx\neZyARy9YJA3K9TSCzNqmOG1us0Nm0nqX2VOD/JAnPbvhNTC/9gPazcrjV6A9pJWi\nk7vGZxx3mf/hxjYNu30rf5/xEfDxFtNoEiy8+OF1gW0vULpcTWZ9E1l0bqPXDfat\nuO+WwhpESdEGaGrzZ2I8wZ0210H5PF6KPD9f82dvGBuy9ZoIj8JnfRp+CCaJX/gx\nPJSIBzcNpIfIeMWCgfxGfZNhasYRKiDpg7NUYNOIxRvlZXnGFjlemBY9fMHqEE70\nduSuyZgdAgMBAAECggEAE9rk1NJdwWwxYvKRjDugPKcs24veX19MXBqsaM56Dw9f\nKNcVbD5RzeTwUhZDKk5DXxe7UWhQq2R9M/dxDWcAAEdlcZ/I87E1RNn8II2vTo4J\nhPHgCvK9KiBRmgv3jRGt3883s71a5Tvew3Ph9xL5rcPppD5edVSYUEXEgxVy/FVl\n53JsbHpCBWvbPxnmtAcu6JhQSTbG2vASEgXsl3OaNHCYYajQFN75LdP7ZkT0txgD\nzBfW2sA53qfDfJ2VG8QP+cXzS71MDA+CxSURAosFt8MxuNma4P3aKZoCKknWW8BS\nqLO7Fr0la1KHQPJe0X7wr70b34DDdRA7P/diU5+ggQKBgQDJQyyNsBMnbvlKU59P\nFPhSXzMatgxELOswALS2mzaJLQkH+QbcyqbS3fCvdGrCnYt8U6JGtdX2+m3XWDP9\naxxgeJ3Y+zDv7AHHKeGdCxMYAQNxUherf1GaYG8mQizGLCXL/jZJmP7aD1D5+g3j\nuhi1KChhqEf4JQInKktYIGPMjQKBgQDGmdv63j9IoE68O29h4ZltU8dGf7/Qd9p/\nWMoGUV0xnpHqdxL83/sLcdNJeW2StWzY/qUvUtgPXHiPyP/an4Dn/U/FquDNw8dI\nC/fORvN/uVtQNcUwDKCmehwSb0rCGoGGGOAQovxbJE5kxtx6OInEZDY2znGzyAOE\nfTvhvFo90QKBgQDAH4jLZLaUISKGKldcZZc7ArfFGt2QwxRryXC5FGe2ATCq1LUR\nVb50cvsMcmRrjXsW3rt9Jp2u25a5R/CxTGtVSC7eb8NidHeqCLffcy/x7R29MnF3\n+90JMl9INUmKj6AxIGXwUcWOoapaRrK1nfNyE3ig6MRzA9kPTBeKc7jxDQKBgQC6\n/2xODq3vqGH6gswhkdZxRo1AKFFn7TJi7itrP3lMm04xQuUyDYPIBuk3KYqutP1E\nZKEMqiiebidm249tPvqVdcKDEJ6ToGAnyn0OUWg9Pz5ni/mbgIhTuG5uPTRbB7Il\nnY58m7qZ5tmZslUvD8VIkkMp38DX0uDdAz47Eqq1wQKBgDMVTMaMR8QmCA+ihQSI\nhVgm5pdOSzNmWlqENETueZMwJ702Xg4vpanIpMuiRhkwFrQKBq0ROespLGBl2Nyd\nNJZSPOciie+ITE9HjEj6geUTL1mPhhJy9YscJ1b9XwUw/PBtNRxXM+5yZ8oxI8Bk\nJ+I8J47tVFKdTyQCS8MRDLtj\n-----END PRIVATE KEY-----\n",
+    "client_email": "firebase-adminsdk-fbsvc@agilehrchatbot.iam.gserviceaccount.com",
+    "client_id": "100528700601075774147",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40agilehrchatbot.iam.gserviceaccount.com",
+    "universe_domain": "googleapis.com"
+  }
+  

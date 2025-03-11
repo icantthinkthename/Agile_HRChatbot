@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BitChat Employee Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700&display=swap" rel="stylesheet">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+
+<!-- Sidebar (No Change) -->
+<div class="sidebar">
+    <div class="logo">
+        <img src="images/logo.png" alt="ChatBit Logo">
+    </div>
+    <nav class="menu">
+        <a href="../Dashboard/index.html" class="menu-item">
+            <img src="images/Dashboard.png" alt="Dashboard">
+            <span>Dashboard</span>
+        </a>
+        <a href="../Messages/index.html" class="menu-item">
+            <img src="images/Messages.png" alt="Messages">
+            <span>Messages</span>
+        </a>
+        <a href="../Document/index.html" class="menu-item">
+            <img src="images/Documents.png" alt="Documents">
+            <span>Documents</span>
+        </a>
+        <a href="../Employee/index.html" class="menu-item active">
+            <img src="images/Employees.png" alt="Employee">
+            <span>Employee</span>
+        </a>
+    </nav>
+    <div class="logout" onclick="logout()">
+        <img src="images/LogOut.png" alt="Log Out">
+        <span>Log Out</span>
+    </div>
+</div>
+
+<!-- Main Content -->
+    <div class="main-content">
+    <div class="header">
+        <h2>All Employees</h2>
+        <button class="add-employee">+ Add Employee</button>
+        <div class="search-box">
+            <input type="text" placeholder="Search">
+            <button><img src="images/search.png" ></button> 
+        </div>
+    </div>
+
+    <!-- Employee List -->
+    <div class="employee-grid">
+        <div class="employee-card">
+            <img src="images/jack.jpg" alt="Jack">
+            <h3>Jack</h3>
+            <p>HR Manager</p>
+        </div>
+        <div class="employee-card">
+            <img src="images/Rose.jpg" alt="Rose">
+            <h3>Rose</h3>
+            <p>HR Manager</p>
+        </div>
+        <div class="employee-card">
+            <img src="images/johnson.jpg" alt="Johnson">
+            <h3>Johnson</h3>
+            <p>Engineer</p>
+        </div>
+        <div class="employee-card">
+            <img src="images/robin.jpg" alt="Employee 4">
+            <h3>Robin</h3>
+            <p>UXUI design</p>
+        </div>
+        <div class="employee-card">
+            <img src="images/robert.jpg" alt="Employee 5">
+            <h3>Robert</h3>
+            <p>UXUI design</p>
+        </div>
+        <div class="employee-card">
+            <img src="images/fin.jpg" alt="Employee 6">
+            <h3>Fin</h3>
+            <p>Front End Developer</p>
+        </div>
+        <div class="employee-card">
+            <img src="images/isara.jpg" alt="Employee 6">
+            <h3>Isala</h3>
+            <p>IT support</p>
+        </div>
+        <div class="employee-card">
+            <img src="images/hit.jpg" alt="Employee 6">
+            <h3>Hit</h3>
+            <p>IT support</p>
+        </div>
+        <div class="employee-card">
+            <img src="images/sushi.jpg" alt="Employee 6">
+            <h3>Sushi</h3>
+            <p>Accountant</p>
+        </div>
+        <div class="employee-card">
+            <img src="images/mark.jpg" alt="Employee 6">
+            <h3>Mark</h3>
+            <p>Marketing</p>
+        </div>
+        <div class="employee-card">
+            <img src="images/ham.jpg" alt="Employee 6">
+            <h3>Ham</h3>
+            <p>Consult</p>
+        </div>
+        <div class="employee-card">
+            <img src="images/moodeng.jpg" alt="Employee 6">
+            <h3>Moodeng</h3>
+            <p>Consult</p>
+        </div>
+    </div>
+</div>
+
+<!-- Profile Section (No Change) -->
+<div class="chat-box">
+    <!-- HR Section (Clickable) -->
+    <div class="hr-section" id="profile-button">
+        <div class="hr-info">
+            <h3>Charles Whitaker</h3>
+            <p>Human Resources Manager</p>
+        </div>
+        <img src="images/HR.jpg" alt="HR Manager">
+    </div>
+
+    <!-- Profile Dropdown (Initially Hidden) -->
+    <div id="profileDropdown" class="profile-dropdown">
+        <div class="dropdown-content">
+            <img src="images/HR.jpg" alt="Profile" class="profile-pic">
+            <h3>Charles Whitaker</h3>
+            <p>Human Resources Manager</p>
+            <p><strong>Employee ID:</strong> 256789120155</p>
+        </div>
+    </div>
+<script>
+function logout() {
+    window.location.href = "../Login/index.html"; 
+}
+</script>
+
+</body>
+</html>
