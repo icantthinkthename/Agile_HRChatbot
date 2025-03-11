@@ -17,8 +17,8 @@ app.use(express.json());
 const db = admin.firestore();
 
 const PORT = 3000; // Changed port to 3000
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server is running on port ${PORT}`);
   });
 
 // 🔹 API LOGIN
@@ -48,4 +48,3 @@ app.post("/login", async (req, res) => {
 app.post("/logout", (req, res) => {
     res.json({ success: true, message: "Log out successfully" });
   });
-  

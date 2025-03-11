@@ -15,6 +15,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     profileButton.addEventListener("click", toggleProfileDropdown);
     document.addEventListener("click", closeDropdown);
+    
+    // Set active menu item
+    const currentPath = window.location.pathname;
+    const menuItems = document.querySelectorAll('.menu-item');
+    
+    menuItems.forEach(item => {
+        if (currentPath.includes(item.getAttribute('href'))) {
+            item.classList.add('active');
+        } else {
+            item.classList.remove('active');
+        }
+    });
 });
+
+function logout() {
+    window.location.href = "../Login/index.html"; 
+}
 
 
